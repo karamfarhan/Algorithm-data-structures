@@ -82,7 +82,58 @@ class LinkedList:
             itr = itr.next
             count += 1
 
+    # to get the value from a given index
 
+    def get_data_at(self, index):
+        if index < 0 or index > self.lenth():
+            raise Exception("invilid index ")
+
+        count_index = 0
+        itr = self.head
+        while itr:
+            if count_index == index:
+                return itr.data
+            itr = itr.next
+            count_index += 1
+
+    # to insert value after some value (not index): 
+
+    def insert_after_value(self, data_after, data_to_insert):
+        if self.head == None:
+            node = Node(data_to_insert, None)
+            self.head = Node(data_after, node)
+            return
+
+        if self.head.data == data_after:
+            self.head.next = Node(data_to_insert, self.head.next)
+            return
+
+        itr = self.head
+        while itr:
+            if itr.data == data_after:
+                itr.next = Node(data_to_insert, itr.next)
+                break
+            itr = itr.next
+
+    # to remove any value by the name of the value not the index 
+    def remove_by_value(self, data):
+        if self.head == None:
+            return
+
+        if self.head.data == data:
+            self.head = self.head.next
+            return
+
+        itr = self.head
+        while itr:
+            if itr.next == None:
+                print("the linked list have not data like this")
+                break
+            if itr.next.data == data:
+                itr.next = itr.next.next
+                break
+
+            itr = itr.next
 
 
 
