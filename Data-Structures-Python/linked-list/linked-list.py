@@ -135,8 +135,95 @@ class LinkedList:
 
             itr = itr.next
 
+    # to reverse the linked list (by reverse the next for the nodes to the last node behind it)
+    def reverse_linked(self):
+        curr = self.head
+        last = None
+        while True:
+            next = curr.next
+            curr.next = last
+            if next == None:
+                break
+            last = curr
+            curr = next
+
+        # now we can print it to see
+        itr = curr
+        llstr = ''
+        while itr:
+            llstr += str(itr.data) + '-->'
+            itr = itr.next
+        print(llstr)
+
+    # this def to help us print the linkden list
+
+    def print(self):
+        if self.head is None:
+            print("linked list is empty")
+            return
+
+        itr = self.head
+        llstr = ''
+        while itr:
+            llstr += str(itr.data) + '-->'
+            itr = itr.next
+        print(llstr)
 
 
 
 
 
+# Some test code for the linked list
+
+if __name__ == "__main__":
+    ll = LinkedList()
+    # ll.insert_at_end(1)
+    # ll.insert_at_end(2)
+    # ll.insert_at_end(3)
+    # ll.insert_at_end(4)
+    # ll.insert_at_end(5)
+
+    # ll.print()
+    # ll.reverse_linked()
+    ########
+
+    # ll.insert_at_begin(5)
+    # ll.insert_at_begin(89)
+
+    # ll.insert_at_end(3)
+    # ll.insert_at_end(7)
+
+    #print (ll.lenth())
+
+    # ll.remove_at(0)
+
+    #ll.insert_at(2, "orang")
+
+    #lis = ["banana","mango","graps","orang"]
+    # ll.insert_valuse(lis)
+
+    #ll.insert_after_value("mango", "apple")
+
+    # ll.remove_by_value("banana")
+
+    # print(ll.get_data_at(2))
+
+    #print (ll.get_data_at(ll.lenth()-1))
+
+    # ll.print()
+
+    # for test to the tmaren *************
+    #ll = LinkedList()
+    # ll.insert_valuse(["banana","mango","grapes","orange"])
+    # ll.print()
+    # ll.insert_after_value("mango","apple") # insert apple after mango
+    # ll.print()
+    # ll.remove_by_value("orange") # remove orange from linked list
+    # ll.print()
+    # ll.remove_by_value("figs")
+    # ll.print()
+    # ll.remove_by_value("banana")
+    # ll.remove_by_value("mango")
+    # ll.remove_by_value("apple")
+    # ll.remove_by_value("grapes")
+    # ll.print()
