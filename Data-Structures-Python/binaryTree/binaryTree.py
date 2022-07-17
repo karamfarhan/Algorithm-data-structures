@@ -53,7 +53,48 @@ class binary_tree:
             self.right = self.right.delet(min_val)
         return self
 
+    # depth first search
+    def in_order(self):
+        element = []
+        if self.left:
+            element += self.left.in_order()
+        element.append(self.data)
+        if self.right:
+            element += self.right.in_order()
+        return element
 
+    # get in pre order
+    def pre_order(self):
+        element = []
+        element.append(self.data)
+        if self.left:
+            element += self.left.pre_order()
+        if self.right:
+            element += self.right.pre_order()
+        return element
+
+    # get in post order
+    def pos_order(self):
+        element = []
+        if self.left:
+            element += self.left.pos_order()
+        if self.right:
+            element += self.right.pos_order()
+        element.append(self.data)
+        return element
+
+    # BFS
+    def bfs(self):
+        nat = []
+        qu = []
+        qu.append(self)
+        while len(qu) > 0:
+            node = qu.pop(0)
+            if node is not None:
+                nat.append(node.data)
+                qu.append(node.left)
+                qu.append(node.right)
+        return nat
 
 
 
