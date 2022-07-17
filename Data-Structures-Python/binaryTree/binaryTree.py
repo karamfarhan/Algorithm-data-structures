@@ -95,7 +95,25 @@ class binary_tree:
                 qu.append(node.left)
                 qu.append(node.right)
         return nat
-
+    # get the min node
+    def find_min(self):
+        if self.left:
+            return self.left.find_min()
+        else:
+            return self.data
+    # get the biggest node
+    def find_max(self):
+        if self.right is None:
+            return self.data
+        return self.right.find_max()
+    # sum of all the nodes
+    def sum(self):
+        nat = 0
+        if self.left:
+            nat += self.left.sum()
+        if self.right:
+            nat += self.right.sum()
+        return nat + self.data
 
 
 
