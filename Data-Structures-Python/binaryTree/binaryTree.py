@@ -117,4 +117,28 @@ class binary_tree:
 
 
 
+# helper function 
+def bulit_tree(l):
+    root = binary_tree(l[0])
+    for i in range(1, len(l)):
+        root.add_child(l[i])
+    return root
 
+# test code
+if __name__ == '__main__':
+
+    my = [15, 12, 14, 7, 27, 20, 88]
+    tree = bulit_tree(my)
+
+    # print(tree.find_min())
+    # print(tree.find_max())
+    # print(tree.search(88))
+    # print(tree.in_order())
+    # print(tree.pre_order())
+    # print(tree.pos_order())
+    # print(tree.bfs())
+    # tree.add_child(16)
+    # print(tree.in_order())
+    # tree.delet(16)
+    # print(tree.in_order())
+    # print(tree.sum())
