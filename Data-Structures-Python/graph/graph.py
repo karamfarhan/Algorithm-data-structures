@@ -23,5 +23,21 @@ class graf:
 	
 	
 	
+	def get_paths(self,start,end,path=[]):
+		path = path + [start]
+		if start == end :
+			return path
+		if start not in self.graf_dic:
+			return []
+		paths = []
+		for node in self.graf_dic[start]:
+			if node not in path:
+				n = self.get_paths(node,end,path)
+				for ns in n:
+					paths.append(ns)
+					#if ns == end:
+					#	paths.append('*')
+		return paths
+	
 	
 
