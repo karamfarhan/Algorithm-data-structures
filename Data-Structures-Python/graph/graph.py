@@ -40,4 +40,39 @@ class graf:
 		return paths
 	
 	
+	def short_path(self,start,end,path=[]):
+		path = path + [start]
+		if start == end :
+			return path
+		if start not in self.graf_dic:
+			return []
+		theshort = None
+		for node in self.graf_dic[start]:
+			if node not in path:
+				n = self.short_path(node,end,path)
+				if n:
+					if theshort is None or len(n) < len(theshort):
+						theshort = n
+		return theshort
+					
+	
 
+#################################
+msarat =[
+('mombi','paris'),
+('mombi','dubi'),
+('paris','dubi'),
+('paris','new york'),
+('dubi','new york'),
+('new york','toronto')]
+mygraf = graf(msarat)
+
+print ('ALL PATHS')
+print (mygraf.get_paths('mombi','new york'))
+print ('SHORTEST PATH')
+print (mygraf.short_path('mombi','new york'))
+print ("*"*40)
+#mygraf.print()
+#mygraf.add_node(('mombi','iraq'))
+#mygraf.add_node(('egypt','vena'))
+#mygraf.print()
