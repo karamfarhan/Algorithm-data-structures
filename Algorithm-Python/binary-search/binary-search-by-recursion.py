@@ -15,6 +15,6 @@ def binary_search(number_list, number_to_found, left_indx, right_indx):
 
 
 # l = [2, 44, 88, 9, 546, 35, 7, 10]
-l = [i for i in range(25000000)]
+my_list = [i for i in range(25000000)]
 
-print(binary_search(l, 20000000, 0, len(l)))
+print(binary_search(my_list, 20000000, 0, len(my_list)))

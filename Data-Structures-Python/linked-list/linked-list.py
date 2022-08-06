@@ -1,4 +1,3 @@
-
 # first we have to make a class for the nodes
 class Node:
     def __init__(self, data=None, next=None):
@@ -8,7 +7,6 @@ class Node:
 
 # then we makes a class for the linked list and give it a head wich in the first  = none
 class LinkedList:
-
     def __init__(self):
         self.head = None
 
@@ -50,7 +48,7 @@ class LinkedList:
 
     def remove_at(self, index):
         if index < 0 or index > self.lenth():
-            raise Exception('invilid index')
+            raise Exception("invilid index")
         if index == 0:
             self.head = self.head.next
 
@@ -96,10 +94,10 @@ class LinkedList:
             itr = itr.next
             count_index += 1
 
-    # to insert value after some value (not index): 
+    # to insert value after some value (not index):
 
     def insert_after_value(self, data_after, data_to_insert):
-        if self.head == None:
+        if self.head is None:
             node = Node(data_to_insert, None)
             self.head = Node(data_after, node)
             return
@@ -115,9 +113,9 @@ class LinkedList:
                 break
             itr = itr.next
 
-    # to remove any value by the name of the value not the index 
+    # to remove any value by the name of the value not the index
     def remove_by_value(self, data):
-        if self.head == None:
+        if self.head is None:
             return
 
         if self.head.data == data:
@@ -126,7 +124,7 @@ class LinkedList:
 
         itr = self.head
         while itr:
-            if itr.next == None:
+            if itr.next is None:
                 print("the linked list have not data like this")
                 break
             if itr.next.data == data:
@@ -142,16 +140,16 @@ class LinkedList:
         while True:
             next = curr.next
             curr.next = last
-            if next == None:
+            if next is None:
                 break
             last = curr
             curr = next
 
         # now we can print it to see
         itr = curr
-        llstr = ''
+        llstr = ""
         while itr:
-            llstr += str(itr.data) + '-->'
+            llstr += str(itr.data) + "-->"
             itr = itr.next
         print(llstr)
 
@@ -163,14 +161,11 @@ class LinkedList:
             return
 
         itr = self.head
-        llstr = ''
+        llstr = ""
         while itr:
-            llstr += str(itr.data) + '-->'
+            llstr += str(itr.data) + "-->"
             itr = itr.next
         print(llstr)
-
-
-
 
 
 # Some test code for the linked list
@@ -193,27 +188,27 @@ if __name__ == "__main__":
     # ll.insert_at_end(3)
     # ll.insert_at_end(7)
 
-    #print (ll.lenth())
+    # print (ll.lenth())
 
     # ll.remove_at(0)
 
-    #ll.insert_at(2, "orang")
+    # ll.insert_at(2, "orang")
 
-    #lis = ["banana","mango","graps","orang"]
+    # lis = ["banana","mango","graps","orang"]
     # ll.insert_valuse(lis)
 
-    #ll.insert_after_value("mango", "apple")
+    # ll.insert_after_value("mango", "apple")
 
     # ll.remove_by_value("banana")
 
     # print(ll.get_data_at(2))
 
-    #print (ll.get_data_at(ll.lenth()-1))
+    # print (ll.get_data_at(ll.lenth()-1))
 
     # ll.print()
 
     # for test to the tmaren *************
-    #ll = LinkedList()
+    # ll = LinkedList()
     # ll.insert_valuse(["banana","mango","grapes","orange"])
     # ll.print()
     # ll.insert_after_value("mango","apple") # insert apple after mango

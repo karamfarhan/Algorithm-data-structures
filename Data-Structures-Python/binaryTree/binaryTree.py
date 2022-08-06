@@ -1,11 +1,13 @@
 # impelement of binary tree in python
 
+
 class binary_tree:
     def __init__(self, data):
         self.data = data
         self.left = None
         self.right = None
-    # add node 
+
+    # add node
     def add_child(self, data):
         if data == self.data:
             return
@@ -19,6 +21,7 @@ class binary_tree:
                 self.right.add_child(data)
             else:
                 self.right = binary_tree(data)
+
     # to search for specific node
     def search(self, val):
         if self.data == val:
@@ -33,6 +36,7 @@ class binary_tree:
                 return self.right.search(val)
             else:
                 return False
+
     # to delete node
     def delet(self, val):
         if val < self.data:
@@ -95,17 +99,20 @@ class binary_tree:
                 qu.append(node.left)
                 qu.append(node.right)
         return nat
+
     # get the min node
     def find_min(self):
         if self.left:
             return self.left.find_min()
         else:
             return self.data
+
     # get the biggest node
     def find_max(self):
         if self.right is None:
             return self.data
         return self.right.find_max()
+
     # sum of all the nodes
     def sum(self):
         nat = 0
@@ -116,19 +123,19 @@ class binary_tree:
         return nat + self.data
 
 
-
-# helper function 
-def bulit_tree(l):
-    root = binary_tree(l[0])
-    for i in range(1, len(l)):
-        root.add_child(l[i])
+# helper function
+def bulit_tree(my_list):
+    root = binary_tree(my_list[0])
+    for i in range(1, len(my_list)):
+        root.add_child(my_list[i])
     return root
 
-# test code
-if __name__ == '__main__':
 
-    my = [15, 12, 14, 7, 27, 20, 88]
-    tree = bulit_tree(my)
+# test code
+if __name__ == "__main__":
+
+    my_list = [15, 12, 14, 7, 27, 20, 88]
+    tree = bulit_tree(my_list)
 
     # print(tree.find_min())
     # print(tree.find_max())

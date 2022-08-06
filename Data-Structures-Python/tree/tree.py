@@ -18,7 +18,7 @@ class TreeNode:
         self.children.append(child)
 
     def print_tree(self):
-        spaces = ' ' * self.get_level() * 3
+        spaces = " " * self.get_level() * 3
         prefix = spaces + "|__" if self.parent else ""
         print(prefix + self.data)
         if self.children:
@@ -50,5 +50,6 @@ def build_product_tree():
 
     root.print_tree()
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     build_product_tree()
